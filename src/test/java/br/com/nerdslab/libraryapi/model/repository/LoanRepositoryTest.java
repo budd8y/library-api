@@ -2,12 +2,14 @@ package br.com.nerdslab.libraryapi.model.repository;
 
 import br.com.nerdslab.libraryapi.model.entity.Book;
 import br.com.nerdslab.libraryapi.model.entity.Loan;
+import br.com.nerdslab.libraryapi.service.EmailService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.test.context.ActiveProfiles;
@@ -29,6 +31,9 @@ public class LoanRepositoryTest {
 
     @Autowired
     private TestEntityManager entityManager;
+
+    @MockBean
+    private EmailService emailService;
 
     @Test
     @DisplayName("deve verificar se existe empréstimo não devolvido para o livro.")

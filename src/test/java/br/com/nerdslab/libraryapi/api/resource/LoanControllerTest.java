@@ -7,6 +7,7 @@ import br.com.nerdslab.libraryapi.exception.BusinessException;
 import br.com.nerdslab.libraryapi.model.entity.Book;
 import br.com.nerdslab.libraryapi.model.entity.Loan;
 import br.com.nerdslab.libraryapi.service.BookService;
+import br.com.nerdslab.libraryapi.service.EmailService;
 import br.com.nerdslab.libraryapi.service.LoanService;
 import br.com.nerdslab.libraryapi.service.LoanServiceTest;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -53,6 +54,9 @@ public class LoanControllerTest {
 
     @MockBean
     private LoanService loanService;
+
+    @MockBean
+    private EmailService emailService;
 
     @Test
     @DisplayName("Deve realizar um empréstimo.")
